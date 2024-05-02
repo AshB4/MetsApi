@@ -3,9 +3,11 @@
 // This is main server - set up your Express app and define your endpoints.
 
 const express = require("express");
+const activityRoutes = require("./routes/activityRoutes");
 const activities = require("./data/metzvalues.json");
 const logger = require("morgan");
 const bodyParser = require("body-parser");
+// const activityRoutes = require("./activityRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -51,7 +53,6 @@ app.use((err, req, res, next) => {
 });
 
 // Mount your routes
-const activityRoutes = require("./activityRoutes");
 app.use("/", activityRoutes);
 
 
